@@ -1,3 +1,185 @@
-/* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+* {
+	box-sizing: border-box;
+}
 
+body {
+	margin: 0;
+}
+
+.row {
+	min-height: 100%;
+}
+
+.row::after {
+	clear: both;
+	display: block;
+}
+
+[class*="col-"] {
+	float: left;
+	padding: 15px;
+}
+
+.header {
+	color: #ffffff;
+	padding: 15px;
+}
+
+.menu ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.menu a {
+	color: #757575;
+	text-decoration: none;
+	position: relative;
+	display: block;
+}
+
+.menu li {
+	position: relative;
+	cursor: pointer;
+	background-color: #EEE;
+	margin: .5em;
+	padding: .8em 0 .3em .8em;
+	height: 2.6em;
+	border-radius: 4px;
+	width:90%;
+}
+
+.menu li:hover {
+	color: #607D8B;
+	background-color: #DDD;
+	left: .1em;
+}
+
+.footer {
+	font-family: "Lucida Sans", sans-serif;
+	background-color: #b5a567;
+	color: #ffffff;
+	text-align: center;
+	font-size: 12px;
+	padding: 2em;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
+
+/* For desktop: */
+.col-1 {
+	width: 33.33%;
+}
+
+.col-2 {
+	width: 50%;
+}
+
+.col-3 {
+	width: 66.66%;
+}
+
+.col-4 {
+	width: 100%;
+}
+
+h1 {
+	margin:0;
+	color:#b5a567;
+}
+
+.tours, .tour-trips {
+	margin: 0 0 2em 0;
+	list-style-type: none;
+	padding: 0;
+	width: 15em;
+}
+
+.tours li, .tour-trips li {
+	position: relative;
+	cursor: pointer;
+	background-color: #EEE;
+	margin: .5em;
+	padding: .3em 0 .3em 0;
+	height: 1.6em;
+	border-radius: 4px;
+}
+
+.tour-trips li {
+	display:inline-block;
+	height: 3em;
+	padding-left: .6em;
+	width: 300px;
+}
+
+.selected {
+	background-color: #757575 !important;
+	color: white !important;
+}
+
+.menu h1 {
+	margin: .5em;
+}
+
+.tours li:hover, .tour-trips li:hover {
+	color: #607D8B;
+	background-color: #DDD;
+	left: .1em;
+}
+
+.tours a, .tour-trips a {
+	color: #757575;
+	text-decoration: none;
+	position: relative;
+	display: block;
+	width: 250px;
+}
+
+
+.tours a:hover, .tour-trips a:hover {
+	color: #B5A567;
+}
+
+.tours .bullet {
+	display: inline-block;
+	font-size: small;
+	color: white;
+	padding: 0.3em 0.7em 0 0.7em;
+	background-color: #757575;
+	line-height: 1em;
+	position: relative;
+	left: -1px;
+	top: -4px;
+	height: 1.8em;
+	min-width: 16px;
+	text-align: right;
+	margin-right: .8em;
+	border-radius: 4px 0 0 4px;
+}
+
+@media only screen and (max-width: 514px) {
+	/* For mobile phones: */
+	[class*="col-"] {
+		width: 100%;
+	}
+
+	.footer {
+		padding: 0;
+	}
+}
+
+@media only screen and (max-width: 1024px) and (min-width: 514px) {
+	/*For tablets*/
+	.col-1, .col-3 {
+		width: 50%;
+	}
+
+	.col-2 {
+		width: 100%;
+	}
+
+	.footer {
+		padding: 0;
+	}
+}

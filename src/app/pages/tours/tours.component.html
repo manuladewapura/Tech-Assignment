@@ -1,8 +1,10 @@
-<h1>Tours</h1>
-<ul>
-	<li *ngFor="let tour of tours">
-		<a routerLink="/tour/{{tour.Id}}">
-			<span>{{tour.Id}}</span> {{tour.Name}}
-		</a>
-	</li>
-</ul>
+<div class="col-4">
+	<h1>Tours</h1>
+	<ul class="tours">
+		<li *ngFor="let tour of tours">
+			<a routerLink="/tour/{{tour.Id}}">
+				<span class="bullet">{{tour.Id}}</span> {{tour.Name}}
+			</a>
+		</li>
+	</ul>
+</div>

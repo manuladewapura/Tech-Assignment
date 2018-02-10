@@ -1,8 +1,10 @@
 <div *ngIf="selectedTour">
-	<h2>Tour Details</h2>
-	<div><span>Name:</span>{{selectedTour.Name}}</div>
-	<div><span>ArtistName:</span>{{selectedTour.ArtistName}}</div>
-	<div><span>Start Date:</span>{{selectedTour.DateStart | date:'fullDate'}}</div>
-	<div><span>End Date:</span>{{selectedTour.DateEnd | date:'fullDate'}}</div>
-	<div><span>Host:</span>{{selectedTour.Host}}</div>
+	<h1>Tour Details</h1>
+	<div>
+		<p><span>Name:</span>{{selectedTour.Name}}</p>
+		<p><span>ArtistName:</span>{{selectedTour.ArtistName}}</p>
+		<p><span>Start Date:</span>{{selectedTour.DateStart | date:'fullDate'}}</p>
+		<p><span>End Date:</span>{{selectedTour.DateEnd | date:'fullDate'}}</p>
+		<p><span>Host:</span>{{selectedTour.Host}}</p>
+	</div>
 </div>

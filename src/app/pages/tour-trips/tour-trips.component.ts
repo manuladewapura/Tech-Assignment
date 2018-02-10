@@ -24,10 +24,15 @@ export class TourTripsComponent implements OnInit {
 
 	getTourTrips() {
 		let selectedTourId = this.commonService.getTourIdFromParent(this.route);
-		this.tourService.getTourTrips(selectedTourId).subscribe(data => this.tourTrips = data, null, () => console.log(this.tourTrips));
+		this.tourService.getTourTrips(selectedTourId).subscribe(data => this.tourTrips = data);
 	}
 
 	onSelect(trip: Trip) {
 		this.selectedTrip = trip;
+	}
+
+	isDate(date: any): boolean {
+		let msDate = Date.parse(date);
+		return !isNaN(msDate);
 	}
 }

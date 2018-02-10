@@ -1,11 +1,11 @@
-<div>
+<div class="col-2">
 	<h1>Tour Trips</h1>
-	<ul>
-		<li *ngFor="let trip of tourTrips" (click)="onSelect(trip)">
-			{{trip.Company}} - {{trip.Date | date:'yyyy-MM-dd'}} {{trip.TimeDepart}}
+	<ul class="tour-trips">
+		<li *ngFor="let trip of tourTrips" (click)="onSelect(trip)" [class.selected]="trip === selectedTrip">
+			<span>{{trip.Company}} - {{isDate(trip.Date) ? (trip.Date | date:'yyyy-MM-dd') : '' }} {{trip.TimeDepart}}</span>
 		</li>
 	</ul>
 </div>
-<div>
+<div class="col-2">
 	<app-trip-details [trip]="selectedTrip"></app-trip-details>
 </div>

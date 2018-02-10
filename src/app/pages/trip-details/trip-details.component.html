@@ -1,9 +1,10 @@
-<div *ngIf="trip">
-	<h2>Trip Details</h2>
-	<div><span>Company: </span>{{trip.Company}}</div>
-	<div><span>Date: </span>{{trip.Date}}</div>
-	<div><span>TimeDepart: </span>{{trip.TimeDepart}}</div>
-
+<div *ngIf="trip" class="trip-details">
+	<h1>Trip Details</h1>
+	<div>
+		<p><span>Company: </span>{{trip.Company}}</p>
+		<p><span>Date: </span>{{trip.Date}}</p>
+		<p><span>TimeDepart: </span>{{trip.TimeDepart}}</p>
+	</div>
 	<h4>Travellers</h4>
 	<ul>
 		<li *ngFor="let traveller of tripTravellers">{{traveller.Name}}</li>
