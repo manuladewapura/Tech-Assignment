@@ -7,6 +7,14 @@ export class CommonService {
 
 	constructor() { }
 
+	getTourIdFromParent(route): number {
+		route.parent.params.subscribe(params => {
+			this.tourId = params['id'];
+		});
+
+		return this.tourId;
+	}
+
 	getTourId(route): number {
 		route.params.subscribe(params => {
 			this.tourId = params['id'];
