@@ -1,37 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Tour } from '../../models/tour'
 import { TourService, CommonService } from '../../services/services';
 
 @Component({
-  selector: 'app-tours',
-  templateUrl: './tours.component.html',
-  styleUrls: ['./tours.component.css']
+	selector: 'app-tours',
+	templateUrl: './tours.component.html',
+	styleUrls: ['./tours.component.css']
 })
 export class ToursComponent implements OnInit {
-  tours: any;
-  selectedTour: any;
+	tours: Tour[] = [];
+	selectedTour: any;
 
-  constructor(
-      private tourService: TourService,
-      private commonService: CommonService)
-  { }
+	constructor(
+		private tourService: TourService,
+		private commonService: CommonService) { }
 
-  ngOnInit() {
-    if (!localStorage.getItem('tours')) {
-        this.getTours();
-    } else {
-        this.tours = JSON.parse(localStorage.getItem('tours'));
-    }
+	ngOnInit() {
+		if (!localStorage.getItem('tours')) {
+			this.tourService.getTours().subscribe(data => this.tours = data, null, () => this.setLocal());
 
-    if (this.tours) {
-        this.selectedTour = this.tours[0];
-    }
-  }
+		} else {
+			this.tours = JSON.parse(localStorage.getItem('tours'));
+		}
+	}
 
-  getTours() {
-  }
-
-  tourClicked(tour) {
-    this.selectedTour = tour;
-  }
+	setLocal(): void {
+		localStorage.setItem('tours', JSON.stringify(this.tours));
+	}
 }

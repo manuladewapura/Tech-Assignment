@@ -1,23 +1,25 @@
 import { Injectable } from '@angular/core';
-import { Http, HttpModule } from '@angular/http';
+import { Http, HttpModule, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import { Tour } from '../../models/tour';
 import { CommonService } from "../shared/common.service";
 
 @Injectable()
 export class TourService {
-    private data: any;
-    private str: string;
+	private dataUrl: string = 'https://my-json-server.typicode.com/tagdevteam/AssignmentApi/tours';
 
-    constructor(public http: Http,
-                public commonService: CommonService) {
-    }
+	constructor(public http: Http,
+		public commonService: CommonService) {
+	}
 
-    private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json() || 'Server error');
-    }
+	private handleError(error: Response) {
+		console.error(error);
+		return Observable.throw(error.json() || 'Server error');
+	}
 
-    getAll() {
-        
-    }    
+	public getTours(): Observable<Tour[]> {
+		return this.http.get(this.dataUrl)
+			.map((response: Response) => response.json() as Tour[])
+			.catch(this.handleError);
+	}
 }

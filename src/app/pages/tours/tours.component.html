@@ -1,0 +1,8 @@
+<h1>Tours</h1>
+<ul>
+	<li *ngFor="let tour of tours">
+		<a routerLink="/tour/{{tour.Id}}">
+			<span>{{tour.Id}}</span> {{tour.Name}}
+		</a>
+	</li>
+</ul>
