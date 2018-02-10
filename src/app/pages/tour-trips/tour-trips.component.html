@@ -1,3 +1,11 @@
-<p>
-  tour-trips works!
-</p>
+<div>
+	<h1>Tour Trips</h1>
+	<ul>
+		<li *ngFor="let trip of tourTrips" (click)="onSelect(trip)">
+			{{trip.Company}} - {{trip.Date | date:'yyyy-MM-dd'}} {{trip.TimeDepart}}
+		</li>
+	</ul>
+</div>
+<div>
+	<app-trip-details [trip]="selectedTrip"></app-trip-details>
+</div>

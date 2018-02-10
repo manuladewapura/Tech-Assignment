@@ -6,7 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { AppComponent } from './app.component';
 import {
 	TourDetailsComponent, TourHomeComponent, ToursComponent,
-	TourTripsComponent, TourTravellersComponent, TourContactComponent, NotfoundComponent
+	TourTripsComponent, TourTravellersComponent, TourContactComponent, TripDetailsComponent, NotfoundComponent
 } from './pages/pages';
 
 import { TourService, CommonService } from "./services/services";
@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 		TourTripsComponent,
 		TourTravellersComponent,
 		TourContactComponent,
+		TripDetailsComponent,
 		NotfoundComponent
 	],
 	imports: [

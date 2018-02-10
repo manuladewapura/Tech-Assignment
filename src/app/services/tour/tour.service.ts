@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http, HttpModule, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Tour } from '../../models/tour';
+import { Trip } from '../../models/trip';
+import { Traveller } from '../../models/traveller';
 import { CommonService } from "../shared/common.service";
 import 'rxjs/Rx';
 
@@ -28,6 +30,22 @@ export class TourService {
 		return this.http.get(this.dataUrl)
 			.map((response: Response) => response.json())
 			.map(t => t.find(y => y.Id == id) as Tour)
+			.catch(this.handleError);
+	}
+
+	public getTourTrips(id: number): Observable<Trip[]> {
+		return this.http.get(this.dataUrl)
+			.map((response: Response) => response.json())
+			.map(t => t.find(y => y.Id == id) as Tour)
+			.map(r => r.Trips)
+			.catch(this.handleError);
+	}
+
+	public getTourTravellers(id: number): Observable<Traveller[]> {
+		return this.http.get(this.dataUrl)
+			.map((response: Response) => response.json())
+			.map(t => t.find(y => y.Id == id) as Tour)
+			.map(r => r.Travellers)
 			.catch(this.handleError);
 	}
 }

@@ -1,36 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import * as _ from 'lodash'; 
-
-import { CommonService } from "../../services/services";
-import { fadeInContent } from '@angular/material';
+import { Trip } from '../../models/trip'
+import { TourService, CommonService } from "../../services/services";
 
 @Component({
-  selector: 'app-tour-trips',
-  templateUrl: './tour-trips.component.html',
-  styleUrls: ['./tour-trips.component.css']
+	selector: 'app-tour-trips',
+	templateUrl: './tour-trips.component.html',
+	styleUrls: ['./tour-trips.component.css']
 })
 export class TourTripsComponent implements OnInit {
-  selectedTrip: any;           
-  trips: any;
+	selectedTrip: Trip;
+	tourTrips: Trip[]
+	trips: any;
 
-  constructor(
-    private route: ActivatedRoute,
-    private commonService: CommonService) 
-    {
-      //this.commonService.setTourId(this.route);      
-    }
+	constructor(
+		private route: ActivatedRoute,
+		private commonService: CommonService,
+		private tourService: TourService) { }
 
-  ngOnInit() {
-    this.getTour();
-  }
+	ngOnInit() {
+		this.getTourTrips();
+	}
 
-  getTour() {    
-    //if (this.commonService.getTour()) {
-    //}
-  }
+	getTourTrips() {
+		let selectedTourId = this.commonService.getTourIdFromParent(this.route);
+		this.tourService.getTourTrips(selectedTourId).subscribe(data => this.tourTrips = data, null, () => console.log(this.tourTrips));
+	}
 
-  serviceClicked(event, service) {
-    this.selectedTrip = service;
-  }
+	onSelect(trip: Trip) {
+		this.selectedTrip = trip;
+	}
 }
