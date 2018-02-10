@@ -18,7 +18,7 @@ export class TourTripsComponent implements OnInit {
     private route: ActivatedRoute,
     private commonService: CommonService) 
     {
-      this.commonService.setTourId(this.route);      
+      //this.commonService.setTourId(this.route);      
     }
 
   ngOnInit() {
@@ -26,8 +26,8 @@ export class TourTripsComponent implements OnInit {
   }
 
   getTour() {    
-    if (this.commonService.getTour()) {
-    }
+    //if (this.commonService.getTour()) {
+    //}
   }
 
   serviceClicked(event, service) {

@@ -2,20 +2,16 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class CommonService {
-  selectedTour: any;
-  tourId: any;
+	selectedTour: any;
+	tourId: any;
 
-  constructor() {
-  }
+	constructor() { }
 
-  getTour() {
-  }
+	getTourId(route): number {
+		route.params.subscribe(params => {
+			this.tourId = params['id'];
+		});
 
-  setTourId(route) {
-    if (!this.tourId) {
-      route.parent.params.subscribe(params => {
-        this.tourId = params['id'];
-      }); 
-    }
-  }
+		return this.tourId;
+	}
 }

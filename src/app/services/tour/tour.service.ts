@@ -3,6 +3,7 @@ import { Http, HttpModule, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Tour } from '../../models/tour';
 import { CommonService } from "../shared/common.service";
+import 'rxjs/Rx';
 
 @Injectable()
 export class TourService {
@@ -20,6 +21,13 @@ export class TourService {
 	public getTours(): Observable<Tour[]> {
 		return this.http.get(this.dataUrl)
 			.map((response: Response) => response.json() as Tour[])
+			.catch(this.handleError);
+	}
+
+	public getTour(id: number): Observable<Tour> {
+		return this.http.get(this.dataUrl)
+			.map((response: Response) => response.json())
+			.map(t => t.find(y => y.Id == id) as Tour)
 			.catch(this.handleError);
 	}
 }
