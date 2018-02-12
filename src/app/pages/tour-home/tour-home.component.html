@@ -1,11 +1,12 @@
-<div class="col-1 menu">
-	<a id="linkTourHome" [routerLink]="['/tours']">Tours Home</a>
-	<h1>{{tourName}}</h1>
-	<ul>
-		<li><a [routerLink]="['Details']">Tour Details</a></li>
-		<li><a [routerLink]="['Trips']">Trips</a></li>
-		<li><a [routerLink]="['Travellers']">Travellers</a></li>
-	</ul>
+<div class="col-1">
+	<div class="menu">
+		<h1>{{tourName}}</h1>
+		<ul>
+			<li><a [routerLink]="['Details']">Tour Details</a></li>
+			<li><a [routerLink]="['Trips']">Trips</a></li>
+			<li><a [routerLink]="['Travellers']">Travellers</a></li>
+		</ul>
+	</div>
 </div>
 <div class="col-3">
 	<router-outlet></router-outlet>
